@@ -1,0 +1,56 @@
+basePath: /
+definitions:
+  server.user:
+    properties:
+      email:
+        type: string
+      name:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact: {}
+  description: This is a sample server celler server.
+  title: Advanced App
+  version: "1.0"
+paths:
+  /healthz:
+    get:
+      consumes:
+      - application/json
+      description: Get healthz
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: integer
+      summary: Get healthz
+      tags:
+      - healthz
+  /user:
+    post:
+      consumes:
+      - application/json
+      description: Create user
+      parameters:
+      - description: User
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/server.user'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/server.user'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+      summary: Create user
+      tags:
+      - user
+swagger: "2.0"

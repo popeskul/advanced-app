@@ -1,0 +1,19 @@
+### GET healthz
+GET localhost:8080/healthz
+
+### POST valid user
+POST localhost:8080/user
+Content-Type: application/json
+
+{
+  "name": "Pasha",
+  "email": "test@test.com"
+}
+
+### POST invalid user
+POST localhost:8080/user
+Content-Type: application/json
+
+{
+  "name": 123
+}
